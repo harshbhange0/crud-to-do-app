@@ -5,7 +5,7 @@ import axios from "axios";
 
 function ToDoList() {
   const [changeS, setChangeS] = useState("db");
-  const baseUrl = `http://localhost:5000/todo/${changeS}`;
+  const baseUrl = `https://mern-stack-todo-app-3ku7.onrender.com/todo/${changeS}`;
   const [taskShow, setTaskShow] = useState([]);
   const [newTask, setNewTask] = useState("");
 
