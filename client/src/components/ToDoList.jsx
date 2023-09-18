@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 // import { FcAddRow } from "react-icons/fc";
@@ -34,6 +34,8 @@ function ToDoList() {
     } catch (error) {
       console.log(error);
     }
+    
+    getTask();
   };
 
   const handleUpdateTask = async (id) => {
@@ -48,6 +50,7 @@ function ToDoList() {
       alert("Please enter a task");
       updateTask = prompt("Please Update task");
     }
+    getTask();
   };
   const handleComplete = async (id, e) => {
     let isTrue = e.target.checked;
@@ -57,11 +60,12 @@ function ToDoList() {
       });
       console.log(isTrue);
       console.log(response?.data.data);
-    } catch (error) {}
-  };
-  useEffect(() => {
+    } catch (error) {
+      console.log(error);
+    }
     getTask();
-  }, [newTask]);
+  };
+
 
   return (
     <div className="relative rounded-md  bg-gradient-to-tr from-purple-400/50  via-blue-400/50   to-violet-500/50 px-4 py-2">
