@@ -26,7 +26,7 @@ app.use("/todo/db", Com);
 
 connectionMongoDB();
 
-const PORT = 5000;
+const PORT = 5050;
 app.listen(PORT, () => {
   console.log("server listening on " + PORT);
 });
