@@ -6,9 +6,9 @@ import { AddTodoItemJ, allItemsJ, deleteItemJ, editItemJ } from "./routes/TodoJs
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use(cors({
-  origin: 'https://mern-stack-todo.netlify.app',
-}));
+// app.use(cors({
+//   origin: 'https://mern-stack-todo.netlify.app',
+// }));
 // json routes
 app.use("/todo/json", allItemsJ);
 app.use("/todo/json", AddTodoItemJ);
