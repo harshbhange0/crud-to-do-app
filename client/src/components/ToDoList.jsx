@@ -140,7 +140,7 @@ function ToDoList() {
       </form>
       <button
         onClick={() => {
-          changeS == "db" ? setChangeS("json") : setChangeS("db");
+          changeS === "db" ? setChangeS("json") : setChangeS("db");
         }}
         className="mx-auto my-3 block border px-2 py-1"
       >
