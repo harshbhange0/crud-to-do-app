@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-// import { FcAddRow } from "react-icons/fc";
+import { BiRefresh } from "react-icons/bi";
 
 function ToDoList() {
   const [changeS, setChangeS] = useState("db");
@@ -34,7 +34,7 @@ function ToDoList() {
     } catch (error) {
       console.log(error);
     }
-    
+
     getTask();
   };
 
@@ -65,11 +65,15 @@ function ToDoList() {
     }
     getTask();
   };
-
+  useState(() => {
+    getTask();
+  }, [changeS]);
 
   return (
     <div className="relative rounded-md  bg-gradient-to-tr from-purple-400/50  via-blue-400/50   to-violet-500/50 px-4 py-2">
-      <button className="absolute top-[-30%]" onClick={getTask}>Refresh</button>
+      <button className="absolute top-[-30%]" onClick={getTask}>
+        <BiRefresh />
+      </button>
       <div className="h-[400px] overflow-auto">
         {taskShow?.map((task, i) => {
           return (
@@ -136,11 +140,11 @@ function ToDoList() {
       </form>
       <button
         onClick={() => {
-          setChangeS("json");
+          changeS == "db" ? setChangeS("json") : setChangeS("db");
         }}
         className="mx-auto my-3 block border px-2 py-1"
       >
-        Changed Storage to {changeS}
+        {changeS}
       </button>
     </div>
   );
